@@ -92,7 +92,7 @@ export default async function HomePage() {
 
 
 
-export async function Header() {
+async function Header() {
     const t = await getTranslations("Main");
     const { getUser, isAuthenticated } = getKindeServerSession();
     const user = await getUser();
