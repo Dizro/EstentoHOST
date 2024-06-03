@@ -10,11 +10,6 @@ import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 import { Document as DocumentInterface } from 'langchain/document';
 import { OpenAIEmbeddings } from '@langchain/openai';
 
-import { HttpsProxyAgent } from 'https-proxy-agent';
-
-const proxy = `http://${process.env.PROXY_USERNAME}:${process.env.PROXY_PASSWORD}@${process.env.PROXY_URL}`
-
-
 interface SearchResult {
     title: string;
     link: string;
@@ -31,9 +26,7 @@ const embeddings = new OpenAIEmbeddings({
     verbose: true,
     apiKey: process.env.OPENAI_API_KEY,
     modelName: "text-embedding-3-large",
-}, { 
-    httpAgent: agent,
-});
+}});
 
 export async function processAndVectorizeContent(
     contents: ContentResult[],
