@@ -20,8 +20,6 @@ interface ContentResult extends SearchResult {
     html: string;
 }
 
-const agent = new HttpsProxyAgent(proxy);
-
 const embeddings = new OpenAIEmbeddings({
     verbose: true,
     apiKey: process.env.OPENAI_API_KEY,
