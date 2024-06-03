@@ -26,7 +26,7 @@ const embeddings = new OpenAIEmbeddings({
     verbose: true,
     apiKey: process.env.OPENAI_API_KEY,
     modelName: "text-embedding-3-large",
-}});
+});
 
 export async function processAndVectorizeContent(
     contents: ContentResult[],
