@@ -4,19 +4,14 @@ import { chats, messages as _messages, searchResults } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { db } from '@/db';
 import { NextResponse } from 'next/server';
-import { HttpsProxyAgent } from 'https-proxy-agent';
-
-const proxy = `http://${process.env.PROXY_USERNAME}:${process.env.PROXY_PASSWORD}@${process.env.PROXY_URL}`
 
 const groq = new OpenAI({
     apiKey: process.env.GROQ_API_KEY,
     baseURL: process.env.BASE_URL,
-    httpAgent: new HttpsProxyAgent(proxy),
 });
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
-    httpAgent: new HttpsProxyAgent(proxy),
 });
 
 interface SearchResult {
