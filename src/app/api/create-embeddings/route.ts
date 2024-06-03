@@ -28,7 +28,7 @@ const embeddings = new OpenAIEmbeddings({
     modelName: "text-embedding-3-large",
 });
 
-export async function processAndVectorizeContent(
+async function processAndVectorizeContent(
     contents: ContentResult[],
     query: string,
     textChunkSize = 1000,
